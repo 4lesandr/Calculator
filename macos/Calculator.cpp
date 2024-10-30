@@ -14,6 +14,7 @@ struct Plugin {
 void loadAllPlugins(const std::string& pluginsDir, ExpressionParser& parser) {
     bool pluginLoaded = false;
 
+
     for (const auto& entry : std::filesystem::directory_iterator(pluginsDir)) {
         if (entry.path().extension() == ".dylib") {
             void* handle = dlopen(entry.path().c_str(), RTLD_LAZY);
